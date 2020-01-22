@@ -1,0 +1,300 @@
+###################################
+print()
+-',"혼합
+-'' ,'' 연결되어 출력됨
+-숫자는 '," 상관없이 그대로
+-print([123])
+>>>[123]
+---sep
+>>> print('naver','kakao','sk','samsung', sep='/')
+naver/kakao/sk/samsung
+
+---end
+기본적으로 print 함수는 문자열 혹은 숫자를 출력하고, 그 끝에 줄바꿈문자를 삽입합니다
+문자열을 출력하고 줄바꿈 줄바꿈 대신에 한칸의 공백을 삽입하면 한줄에 두 개의 단어를 출력할 수 있습니다.
+>>> print('first', end=' ');print('second', end=' ')
+first second 
+
+---len
+>>> string = "dk2jd923i1jdk2jd93jfd92jd918943jfd8923"
+>>> print(len(string))
+38
+
+---문자형 vs 숫자형
+>>> a = '3'
+>>> b = '4'
+>>> print(a+b)
+34
+>>> a = 3
+>>> b = 4
+>>> print(a+b)
+7
+
+>>> s = "hello"
+>>> t = python
+>>> print(s + '! ' + t)
+hello! python
+
+---index
+>>> lang = 'python'
+>>> print(lang[0] + " "  + lang[1])
+p y
+>>> print(lang[0] + " "  + lang[2])
+p t
+>>> license_plate = "24가 2210"
+>>> print(license_plate[4:])
+2210
+>>> print(license_plate[-5:])
+ 2210
+
+---slice
+슬라이싱의 세 번째 값은 인덱스의 증감폭을 지정합니다.
+>>> string = "홀짝홀짝홀짝"
+>>> print(string[0::2])
+홀홀홀
+>>> print(string[1::2])
+짝짝짝
+증감폭을 음수로 지정하면 역순으로 문자들을 가져옵니다.
+>>> print(string[(시작index)::-1])
+짝홀짝홀짝홀
+
+---replace
+>>> phone_number = "010-1111-2222"
+>>> phone_number.replace("-", " ")
+'010 1111 2222'
+
+---insert
+>>> movie_rank = ['닥터 스트레인지', '스플릿', '럭키']
+>>> print(movie_rank)
+['닥터 스트레인지', '스플릿', '럭키']
+>>> movie_rank.append('배트맨')
+>>> print(movie_rank)
+['닥터 스트레인지', '스플릿', '럭키', '배트맨']
+>>> movie_rank.insert(1,'슈퍼맨')
+>>> print(movie_rank)
+['닥터 스트레인지', '슈퍼맨', '스플릿', '럭키', '배트맨']
+
+---remove & del
+>>> movie_rank.remove('럭키')
+>>> print(movie_rank)
+['닥터 스트레인지', '슈퍼맨', '스플릿', '배트맨']
+>>> del movie_rank[1]
+>>> print(movie_rank)
+['닥터 스트레인지', '스플릿', '배트맨']
+>>> del movie_rank[1:]
+>>> print(movie_rank)
+['닥터 스트레인지']
+
+---max, min
+>>> nums = [1,2,3,4,5,6,7]
+>>> print(max(nums) + ','+ min(nums))
+Traceback (most recent call last):
+  File "<pyshell#80>", line 1, in <module>
+    print(max(nums) + ','+ min(nums))
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+>>> print(max(nums) , ',',  min(nums))
+7 , 1
+
+>>> print(type(max(nums)))
+<class 'int'>
+>>> print('max: ', max(nums))
+max:  7
+>>> print('max: ' + str(max(nums)))
+max: 7
+
+---sum
+>>> nums = [1,2,3,4,5,6,7]
+>>> print(sum(nums))
+28
+
+---len
+>>> cook = ["피자", "김밥", "만두", "양념치킨", "족발", "피자", "김치만두", "쫄면", "쏘세지", "라면", "팥빙수", "김치전"]
+>>> print(len(cook))
+12
+
+파이썬은 기본적으로 평균을 구하는 함수를 제공하지 않습니다
+>>> nums = [1, 2, 3, 4, 5]
+>>> print(sum(nums)/len(nums))
+3.0
+
+
+#####################################
+input()
+-input() 
+input 기다림
+-input('asdf')
+'asdf' input기다림
+-age = input('how old R U?')
+변수에 입력값 넣을 수 있음
+
+variable
+-대소문자 구분가능
+-num = 1
+-num * 10
+>>>10
+-num + 2
+>>>3
+-num = num * 24
+>>>num
+24
+이렇게 변수 덮을 수도 있음
+띄어쓰기 안되고 숫자로 시작 안되고
+띄어쓰기 대신 _ 많이 사용
+
+######################################
+data type
+num = 3
+f = 3.14
+type(1)
+<class 'int'>
+type(num)
+<class 'int'>
+type(f)
+<class 'float'>
+3+3
+>>>6
+->>바로 계산 가능
+
+######################################
+String
+따옴표로 표시해야함
+>>>"hello"
+'hello'
+>>>'hello'
+'hello'
+
+######################################
+boolean
+Ture/False  예약어
+>>>b = True
+>>>print(b)
+Ture
+>>>print(False)
+False
+
+#######################################
+Llist
+>>> student = ['a','b','c']
+>>> for i in student:
+	print(i)
+
+	
+a
+b
+c
+>>>student
+['a', 'b', 'c']
+>>> a = [1,2,3]
+>>> a
+[1, 2, 3]
+>>> student = ['asdf','asdf',2]
+>>> student
+['asdf', 'asdf', 2]
+@@@@@@
+>>>import random
+>>> print(random.choice(student))
+a
+>>> print(random.choice(student))
+c
+@@@@@@붙일 수 있음
+>>>student.append('d')
+>>>student
+['a, 'b', 'c', 'd']
+@@@@@@바꿀 수 있음
+>>> student[0] = 'x'
+>>> student
+['x', 'b', 'c', 'd']
+>>> l1 = ['c', 'c#', 'python']
+>>> l2 = ['java', 'Django', 'js']
+>>> l3 = l1 + l2
+>>> print(l3)
+['c', 'c#', 'python', 'java', 'Django', 'js']
+
+#################################
+Tuple : 수정 불가
+>>> mt = ('a','a','b','g','t')
+>>> mt
+('a', 'a', 'b', 'g', 't')
+>>> mt[0] = 'v'
+Traceback (most recent call last):
+  File "<pyshell#72>", line 1, in <module>
+    mt[0] = 'v'
+TypeError: 'tuple' object does not support item assignment
+
+
+#Dictionary: 값이 의미있는 의미를 붙여줌
+>>> my_dic = {'a':'A', 'b':'B', 'c':'C'}
+>>> my_dic
+{'a': 'A', 'b': 'B', 'c': 'C'}
+>>> my_dic['a']
+'A'
+>>> my_dic['a'] = 'R'
+>>> my_dic
+{'a': 'R', 'b': 'B', 'c': 'C'}
+
+#자료형 변환
+>>> mint = 1
+>>> type(mint)
+<class 'int'>
+>>> float(mint)
+1.0
+>>> str(mint)
+'1'
+>>> type(str(mint))
+<class 'str'>
+>>> mstr = 'code'
+>>> mstr
+'code'
+>>> list(mstr)
+['c', 'o', 'd', 'e']
+
+#comment
+#이용
+>>> print('hello') # 안뇽을 표시합니다
+hello
+>>> print(2+3) # 계산결과를 출력합니다
+5 
+
+>>> mstr = '신효경'
+>>> print(mstr)
+신효경
+>>> type(mstr)
+<class 'str'>
+>>> mstr= "효경"
+>>> print(mstr)
+효경
+>>> type(mstr)
+<class 'str'>
+>>> lstr = """나
+너
+우리
+모두
+"""
+>>> print(lstr)
+나
+너
+우리
+모두
+
+>>> type(lstr)
+<class 'str'>
+
+############################
+Formatting
+s는 문자열 대입에 사용
+>>> my_str = 'My name is %s' % 'Hyo Gyeong'
+>>> print(my_str)
+My name is Hyo Gyeong
+d는 정수형 대입
+>>> '%d %d' % (1,2) ++2개 이상일 때는 꼭 묶어서
+'1 2'
+>>> "%f" % 3.14
+'3.140000'
+##{ }.format 가 좀더 파이썬 스러운 방법
+>>> 'My name is {}'.format('효경')
+'My name is 효경'
+>>> '{} * {} = {}'.format(2,3,2*3)
+'2 * 3 = 6'
+주소값도 바꿀 수 있음
+>>> '{1} * {0} = {2}'.format(2,3,2*3)
+'3 * 2 = 6' 
