@@ -15,7 +15,7 @@ naver/kakao/sk/samsung
 >>> print('first', end=' ');print('second', end=' ')
 first second 
 
----len
+---len // 숫자에는 존재하지 않음
 >>> string = "dk2jd923i1jdk2jd93jfd92jd918943jfd8923"
 >>> print(len(string))
 38
@@ -63,7 +63,7 @@ p t
 >>> phone_number.replace("-", " ")
 '010 1111 2222'
 
----insert
+---append, insert
 >>> movie_rank = ['닥터 스트레인지', '스플릿', '럭키']
 >>> print(movie_rank)
 ['닥터 스트레인지', '스플릿', '럭키']
@@ -182,6 +182,13 @@ Llist
 a
 b
 c
+>>> for i in '배고파':
+	print(i)
+
+	
+배
+고
+파
 >>>student
 ['a', 'b', 'c']
 >>> a = [1,2,3]
@@ -221,8 +228,20 @@ Traceback (most recent call last):
     mt[0] = 'v'
 TypeError: 'tuple' object does not support item assignment
 
+>>> mt= 1,2,3,4
+>>> mtt = (1,2,3,4,5)
+>>> print(mt + mtt)
+(1, 2, 3, 4, 1, 2, 3, 4, 5)
+>>> print(mt + '&' + mtt)
+Traceback (most recent call last):
+  File "<pyshell#41>", line 1, in <module>
+    print(mt + '&' + mtt)
+TypeError: can only concatenate tuple (not "str") to tuple
+>>> print(mt, '&', mtt)
+(1, 2, 3, 4) & (1, 2, 3, 4, 5)
 
-#Dictionary: 값이 의미있는 의미를 붙여줌
+###############################################
+Dictionary: 값이 의미있는 의미를 붙여줌
 >>> my_dic = {'a':'A', 'b':'B', 'c':'C'}
 >>> my_dic
 {'a': 'A', 'b': 'B', 'c': 'C'}
@@ -232,7 +251,13 @@ TypeError: 'tuple' object does not support item assignment
 >>> my_dic
 {'a': 'R', 'b': 'B', 'c': 'C'}
 
-#자료형 변환
+>>> dic = {1:3, 'g':'t', 'r':3}
+>>> dic['1'] = 5
+>>> print(dic)
+{1: 4, 'g': 't', 'r': 3, '1': 5}  //추가가 됨
+
+###################################################
+자료형 변환
 >>> mint = 1
 >>> type(mint)
 <class 'int'>
@@ -298,3 +323,91 @@ d는 정수형 대입
 주소값도 바꿀 수 있음
 >>> '{1} * {0} = {2}'.format(2,3,2*3)
 '3 * 2 = 6' 
+
+###############################
+Indexing(뽑아쓰기)
+>>> song = '지금 듣고있는 노래는 태연 노래'
+>>> song[2]
+' '
+>>> song[6]
+'는'
+>>> song[-1]
+'래'
+Slicing(잘라쓰기)
+>>> song[0:6]
+'지금 듣고있'
+>>> song[:7]
+'지금 듣고있는'
+>>> song[9:]
+'래는 태연 노래'
+
+##################################
+.split : 문자에만 사용가능
+>>> song.split()
+['지금', '듣고있는', '노래는', '태연', '노래']
+>>> fruit = '딸기,파인애플,수박,망고,체리,귤'
+>>> fruit.split(',')
+['딸기', '파인애플', '수박', '망고', '체리', '귤']
+
+.pop(index) : index해당 value제거
+>>> fruit = ['딸기','망고','체리']
+>>> print(fruit)
+['딸기', '망고', '체리']
+>>> fruit.pop(0)
+'딸기'
+>>> print(fruit)
+['망고', '체리']
+
+.sort : 정렬
+>>> alphabet = ['a','e','r','h','f','w','c','h']
+>>> alphabet.sort()
+>>> print(alphabet)
+['a', 'c', 'e', 'f', 'h', 'h', 'r', 'w']
+
+.count 
+>>> mylist = [1,2,4,5,2,7,8,5,8,9,4,6,7,3,8]
+>>> mylist.count('5')
+0
+>>> mylist.count(4)
+2
+
+####################################
+packing & unpacking
+
+>>> mt_tuple = 1,4,7 #packing
+>>> n1, n2, n3 = mt_tuple #unpacking
+>>> n1
+1
+>>> n2
+4
+>>> n3
+7
+>>> n1, n2 = n2, n1#순서도 바꿀 수 있음
+>>> n1
+4
+>>> n2
+1
+
+####################################
+range
+
+>>> for i in range(0,3):
+	print(i)
+
+	
+0
+1
+2
+>>> for i in range(5,7):
+	print(i)
+
+	
+5
+6
+>>> for i in range(3):
+	print(i)
+
+	
+0
+1
+2
