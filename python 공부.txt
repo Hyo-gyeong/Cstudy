@@ -281,6 +281,59 @@ Dictionary: 값이 의미있는 의미를 붙여줌
 >>> print(dic)
 {1: 4, 'g': 't', 'r': 3, '1': 5}  //추가가 됨
 
+>>> nickName = {}
+>>> nickName['효경'] = '효갱'
+>>> nickName
+{'효경': '효갱'}
+>>> nickName['혜윤'] = '도리'
+>>> nickName
+{'효경': '효갱', '혜윤': '도리'}
+>>> nickName[0] = 6
+>>> nickName
+{'효경': '효갱', '혜윤': '도리', 0: 6}
+>>> del nickName[0]
+>>> nickName
+{'효경': '효갱', '혜윤': '도리'}
+>>> nickName['아빠'] = '요미벌즤'
+>>> nickName['엄마'] = '가와이 마미'
+>>> nickName
+{'효경': '효갱', '혜윤': '도리', '아빠': '요미벌즤', '엄마': '가와이 마미'}
+
+>>> for v in nickName.values():
+	print(v)
+
+	
+효갱
+도리
+요미벌즤
+가와이 마미
+
+>>> for member in nickName.keys():
+	print(member)
+
+	
+효경
+혜윤
+아빠
+엄마
+
+>>> for k, v in nickName.items():
+	print(k, v)
+
+	
+효경 효갱
+혜윤 도리
+아빠 요미벌즤
+엄마 가와이 마미
+
+>>> for k, v in nickName:
+	print(k, v)
+
+	
+효 경
+혜 윤
+아 빠
+엄 마
 ###################################################
 자료형 변환
 >>> mint = 1
@@ -559,3 +612,145 @@ Comprehension
 9
 >>> 7 ** 8
 5764801
+
+########################################
+if & for
+
+>>> nums = [1,2,3,4,5,6,7,8,9,10]
+>>> for i in nums:
+	if i % 2 == 1:
+		print(i,": 홀수")
+	else:
+		print(i,": 짝수")
+
+		
+1 : 홀수
+2 : 짝수
+3 : 홀수
+4 : 짝수
+5 : 홀수
+6 : 짝수
+7 : 홀수
+8 : 짝수
+9 : 홀수
+10 : 짝수
+
+####################################
+문자열 연산자
+
+>>> '난'+'신효경'+'입니다'
+'난신효경입니다'
+>>> "음료수" * 4
+'음료수음료수음료수음료수'
+>>> "음료수 "*4
+'음료수 음료수 음료수 음료수 '
+
+>>> def jump():
+	print("콩! "*5)
+
+	
+>>> jump()
+콩! 콩! 콩! 콩! 콩!
+
+#######################################
+and or not
+
+>>> 5 == 6
+False
+>>> 5 >= 4
+True
+>>> 2 != 5
+True
+>>> True and True
+True
+>>> False or False
+False
+>>> False or True
+True
+>>> not False
+True
+>>> not True
+False
+>>> True and True
+True
+>>> True and False
+False
+>>> height = 160
+>>> age = 20
+>>> 
+>>> height > 170 and age > 25
+False
+
+################################
+if elif else
+
+>>> name = 'hyo'
+>>> if name == 'hyo':
+	print(name)
+elif name == '호박':
+	print('i like u')
+else:
+	print('^^')
+
+	
+hyo
+>>> name = 'hh'
+>>> if name == 'hyo':
+	print(name)
+elif name == '호박':
+	print('i like u')
+else:
+	print('^^')
+
+	
+^^
+>>> name = '호박'
+>>> if name == 'hyo':
+	print(name)
+elif name == '호박':
+	print('i like u')
+else:
+	print('^^')
+
+	
+i like u
+
+######################################
+while
+
+>>> count = 0
+>>> while count < 3:
+	print('횟수', count+1)
+	count += 1
+
+	
+횟수 1
+횟수 2
+횟수 3 
+
+>>> count = 0
+>>> while count < 10:
+	count += 1
+	if count < 4:
+		continue
+	print('횟수', count)
+	if count == 8:
+		break
+
+	
+횟수 4
+횟수 5
+횟수 6
+횟수 7
+횟수 8
+
+#######################################
+Function
+종류 : 내장함수, 모듈의 함수, 사용자 정의 함수
+장점 : 재사용 가능, 코드관리 쉬움, 조립해서 사용가능
+
+>>> def add(n1, n2):
+	return n1+n2
+
+>>> add(1,2)
+3
