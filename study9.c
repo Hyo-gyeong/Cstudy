@@ -1,4 +1,4 @@
-//인수분해코드 
+//인수분해코드 초안
 #include <stdio.h>
 int xPlus(int a, int b, int *x, int *y)
 {
