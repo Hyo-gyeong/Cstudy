@@ -1,4 +1,5 @@
-﻿#include <stdio.h>
+//인수분해코드 
+#include <stdio.h>
 int xPlus(int a, int b, int *x, int *y)
 {
 	if (b > 0){
