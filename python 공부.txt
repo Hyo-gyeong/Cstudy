@@ -254,6 +254,8 @@ Traceback (most recent call last):
 TypeError: 'tuple' object does not support item assignment
 
 >>> mt= 1,2,3,4
+>>> type(mt)
+<class 'tuple'>
 >>> mtt = (1,2,3,4,5)
 >>> print(mt + mtt)
 (1, 2, 3, 4, 1, 2, 3, 4, 5)
