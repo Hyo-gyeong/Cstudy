@@ -1,4 +1,4 @@
-﻿#include <stdio.h>
+#include <stdio.h>
 /*int main(void)
 {
 	int list[5][3] = {0};
@@ -341,7 +341,7 @@ int main(void)
 }*/
 
 //Challenge5_1
-void printSeats (int s[][10], int c)
+/*void printSeats (int s[][10], int c)
 {
 	int i, j;
 
@@ -360,14 +360,14 @@ void printSeats (int s[][10], int c)
 }
 int main(void)
 {
-	char ans, r, c;
-	int i;
+	char ans;
+	int i, r, c;
 	int seats[3][10] = {0};
 
-	while (1){
+	do {
 		printf("좌석을 예약하시겠습니까?(y/n) ");
-		scanf("%c", &ans);
-		if (ans == 'n')
+		scanf(" %c", &ans); //%c 앞에 공백을 추가하면 white space를 구분자로 인식한다.버퍼비우는 효과!!
+		if (ans == 'n')//혹시 모르니까^^
 			break;
 
 		printSeats(seats, 3);
@@ -379,7 +379,80 @@ int main(void)
 			printf("이미 예약된 자리입니다.\n");
 		else{
 			seats[r-1][c-1] = 1;
+			printf("예약되었습니다.\n");
 			printSeats(seats, 3);
 		}	
+	}while (ans == 'y');
+}*/
+//Project4_1(일촌의 일촌 #2)
+#include <stdlib.h>
+#include <time.h>
+#define NUM_OF_MEMBERS 15 // sns 가입자의 수 
+
+void print_links(int data[][NUM_OF_MEMBERS] );  
+void matrix_multiplication(int data[][NUM_OF_MEMBERS], int result[][NUM_OF_MEMBERS] ); 
+
+int main( void ) 
+{
+	int link_data[NUM_OF_MEMBERS][NUM_OF_MEMBERS] = {0}; //최초 link matrix 1촌의 matrix 
+	int link_result[NUM_OF_MEMBERS][NUM_OF_MEMBERS] = {0}; //2촌까지의 관계가 표시된 matrix 
+ 
+    int i = 0;
+	int j = 0;
+	int num_of_steps=0;   
+	int ALL_ONES=0; 
+ 
+	srand(100); 
+	//srand( (unsigned int)time(NULL) ); 
+ 
+  // link_data 값 넣기: 자신은 두 1촌이다        
+	for(i = 0; i < NUM_OF_MEMBERS; i++ ){
+		link_data[i][i] = 1; //i와 i의 관계는 1촌. 즉 1로 표시.      
+	} 
+ 
+  // link_data 값 넣기: random하게 수를 발생시켜서 1촌 친구를 설정한다.        
+	for(i = 0; i < NUM_OF_MEMBERS; i++){ //각 user마다 "대략" 4명의 친구가 있다고 가정.        
+		j = 0;                
+		while ( j < 2 ){ //i가 두 개의 링크를 연결하고 i가 아닌 다른 user가 i와 연결         
+			int new_link = rand()%NUM_OF_MEMBERS;   
+			if( new_link != i ){
+				link_data[i][new_link] = 1; //i와 new_link가 1촌이면    
+				link_data[new_link][i] = 1; //new_linke와 i도 1촌.          
+				j++;                        
+			}
+		}
+	}        
+	printf("=================================================================\n");       
+	printf("Friends matrix\n");        
+	printf("=================================================================\n");    
+	print_links(link_data); //최초 1촌 관계 출력 
+ 
+	matrix_multiplication(link_data, link_result); 
+ 
+	printf("=================================================================\n");     
+	printf("Friends of friends matrix\n");        
+	printf("=================================================================\n");       
+	print_links(link_result); // 계산된 2촌까지의 관계 출력
+} 
+void print_links(int data[][NUM_OF_MEMBERS]) 
+{   
+	int i, j;
+
+	for (i = 0; i < NUM_OF_MEMBERS; i++){
+		for (j = 0; j < NUM_OF_MEMBERS; j++)
+			printf("%2d", data[i][j]);	
+		printf("\n");
 	}
+} 
+void matrix_multiplication(int data[][NUM_OF_MEMBERS], int result[][NUM_OF_MEMBERS]) 
+{ 
+	int i, j, n;
+
+	for (i = 0; i < NUM_OF_MEMBERS; i++)
+		for (j = 0; j < NUM_OF_MEMBERS; j++)
+			for (n = 0; n < NUM_OF_MEMBERS; n++){
+				result[i][j] += data[i][n] * data[n][j];
+				if (result[i][j])
+					break;
+			}
 }
